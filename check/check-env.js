@@ -8,8 +8,7 @@ const shelljs = require('shelljs');
 const checkConfig = require('./config');
 const util = require('./util');
 
-const expectedNodeVersion1 = 'v8.11.0';
-const expectedNodeVersion2 = 'v8.11.3';
+const expectedNodeVersion = 'v8.11.0';
 const expectedNPMVersion = '5.6.0';
 
 let nodeVersion = shelljs.exec('node -v', { silent: true }).stdout.trim();
@@ -18,8 +17,8 @@ let npmVersion = shelljs.exec('npm -v', { silent: true }).stdout.trim();
 
 let errMsg;
 
-if (nodeVersion !== expectedNodeVersion1 && nodeVersion !== expectedNodeVersion2) {
-  errMsg = 'Node version must be ' + expectedNodeVersion1 + 'or' + expectedNodeVersion2;
+if (nodeVersion !== expectedNodeVersion) {
+  errMsg = 'Node version must be ' + expectedNodeVersion;
 }
 
 if (npmVersion !== expectedNPMVersion) {
